@@ -1,19 +1,18 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import './DentistWebsite.css'
-import sara from './assets/dentist/sara.jpg'
-import mike from './assets/dentist/mike.jpg'
-import kkk from './assets/dentist/kkk.jpg'
-import dr from './assets/dentist/dr.jpg'
-import d1 from './assets/dentist/d1.jpg'
-import d2 from './assets/dentist/d2.jpg'
-import d3 from './assets/dentist/d3.jpg'
-import d4 from './assets/dentist/d4.jpg'
-import d5 from './assets/dentist/d5.jpg'
-import d6 from './assets/dentist/d6.jpg'
-import logo from './assets/dentist/logo.png'
-
+import { useState, useEffect } from "react";
+import "./DentistWebsite.css";
+import sara from "./assets/dentist/sara.jpg";
+import mike from "./assets/dentist/mike.jpg";
+import kkk from "./assets/dentist/kkk.jpg";
+import dr from "./assets/dentist/dr.jpg";
+import d1 from "./assets/dentist/d1.jpg";
+import d2 from "./assets/dentist/d2.jpg";
+import d3 from "./assets/dentist/d3.jpg";
+import d4 from "./assets/dentist/d4.jpg";
+import d5 from "./assets/dentist/d5.jpg";
+import d6 from "./assets/dentist/d6.jpg";
+import logo from "./assets/dentist/logo.png";
 
 import {
   Phone,
@@ -35,12 +34,12 @@ import {
   ChevronUp,
   Camera,
   CreditCard,
-} from "lucide-react"
+} from "lucide-react";
 
 export default function DentistWebsite() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [selectedDate, setSelectedDate] = useState("")
-  const [selectedTime, setSelectedTime] = useState("")
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [selectedDate, setSelectedDate] = useState("");
+  const [selectedTime, setSelectedTime] = useState("");
   const [appointmentForm, setAppointmentForm] = useState({
     firstName: "",
     lastName: "",
@@ -48,25 +47,25 @@ export default function DentistWebsite() {
     phone: "",
     service: "",
     message: "",
-  })
-  const [expandedFAQ, setExpandedFAQ] = useState(null)
-  const [isHeaderHidden, setIsHeaderHidden] = useState(false)
+  });
+  const [expandedFAQ, setExpandedFAQ] = useState(null);
+  const [isHeaderHidden, setIsHeaderHidden] = useState(false);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId)
+    const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-    setIsMenuOpen(false)
-  }
+    setIsMenuOpen(false);
+  };
 
   const handleAppointmentSubmit = (e) => {
-    e.preventDefault()
-    alert("Appointment request submitted! We'll contact you soon to confirm.")
+    e.preventDefault();
+    alert("Appointment request submitted! We'll contact you soon to confirm.");
     setAppointmentForm({
       firstName: "",
       lastName: "",
@@ -74,28 +73,28 @@ export default function DentistWebsite() {
       phone: "",
       service: "",
       message: "",
-    })
-    setSelectedDate("")
-    setSelectedTime("")
-  }
+    });
+    setSelectedDate("");
+    setSelectedTime("");
+  };
 
   const toggleFAQ = (index) => {
-    setExpandedFAQ(expandedFAQ === index ? null : index)
-  }
+    setExpandedFAQ(expandedFAQ === index ? null : index);
+  };
 
   useEffect(() => {
-    let lastScrollY = window.scrollY
+    let lastScrollY = window.scrollY;
     const handleScroll = () => {
       if (window.scrollY > lastScrollY && window.scrollY > 80) {
-        setIsHeaderHidden(true)
+        setIsHeaderHidden(true);
       } else {
-        setIsHeaderHidden(false)
+        setIsHeaderHidden(false);
       }
-      lastScrollY = window.scrollY
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      lastScrollY = window.scrollY;
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const testimonials = [
     {
@@ -122,7 +121,7 @@ export default function DentistWebsite() {
       text: "Professional, caring, and efficient. They worked with my insurance and made the process seamless.",
       service: "Dental Implants",
     },
-  ]
+  ];
   const galleryImages = [
     { url: d1, alt: "Modern reception area", title: "Reception Area" },
     { url: d2, alt: "Treatment room", title: "Treatment Room" },
@@ -131,7 +130,7 @@ export default function DentistWebsite() {
     { url: d5, alt: "Sterilization room", title: "Sterilization Center" },
     { url: d6, alt: "Consultation room", title: "Consultation Room" },
     { url: d6, alt: "Consultation room", title: "Consultation Room" },
-  ]
+  ];
 
   const insuranceProviders = [
     "Delta Dental",
@@ -146,7 +145,7 @@ export default function DentistWebsite() {
     "Assurant",
     "Principal",
     "Sun Life",
-  ]
+  ];
 
   const faqData = [
     {
@@ -179,7 +178,7 @@ export default function DentistWebsite() {
       answer:
         "Yes, professional teeth whitening is safe when performed by a dental professional. We use proven methods that protect your enamel while achieving excellent results.",
     },
-  ]
+  ];
 
   const timeSlots = [
     "9:00 AM",
@@ -196,7 +195,7 @@ export default function DentistWebsite() {
     "3:30 PM",
     "4:00 PM",
     "4:30 PM",
-  ]
+  ];
 
   const services = [
     "General Cleaning",
@@ -208,7 +207,7 @@ export default function DentistWebsite() {
     "Dental Implants",
     "Orthodontics",
     "Oral Surgery",
-  ]
+  ];
 
   return (
     <div>
@@ -217,40 +216,59 @@ export default function DentistWebsite() {
         <div className="container">
           <div className="header-content">
             <div className="logo">
-              <img src={logo} alt="Dr. Smith Dental Logo" style={{ width: 150, height: 150, borderRadius: "50%" }} />
-   
+              <img
+                src={logo}
+                alt="Dr. Smith Dental Logo"
+                style={{ width: 150, height: 150, borderRadius: "50%" }}
+              />
             </div>
 
             {/* Desktop Navigation */}
             <nav className="nav">
-              <button onClick={() => scrollToSection("home")} className="nav-link">
+              <button
+                onClick={() => scrollToSection("home")}
+                className="nav-link">
                 Home
               </button>
-              <button onClick={() => scrollToSection("services")} className="nav-link">
+              <button
+                onClick={() => scrollToSection("services")}
+                className="nav-link">
                 Services
               </button>
-              <button onClick={() => scrollToSection("about")} className="nav-link">
+              <button
+                onClick={() => scrollToSection("about")}
+                className="nav-link">
                 About
               </button>
-              <button onClick={() => scrollToSection("testimonials")} className="nav-link">
+              <button
+                onClick={() => scrollToSection("testimonials")}
+                className="nav-link">
                 Reviews
               </button>
-              <button onClick={() => scrollToSection("gallery")} className="nav-link">
+              <button
+                onClick={() => scrollToSection("gallery")}
+                className="nav-link">
                 Gallery
               </button>
-              <button onClick={() => scrollToSection("insurance")} className="nav-link">
+              <button
+                onClick={() => scrollToSection("insurance")}
+                className="nav-link">
                 Insurance
               </button>
-              <button onClick={() => scrollToSection("faq")} className="nav-link">
+              <button
+                onClick={() => scrollToSection("faq")}
+                className="nav-link">
                 FAQ
               </button>
-              <button onClick={() => scrollToSection("contact")} className="nav-link">
+              <button
+                onClick={() => scrollToSection("contact")}
+                className="nav-link">
                 Contact
               </button>
             </nav>
 
             {/* Emergency Contact */}
-       
+
             {/* Mobile Menu Button */}
             <button className="mobile-menu-btn" onClick={toggleMenu}>
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -260,31 +278,48 @@ export default function DentistWebsite() {
           {/* Mobile Navigation */}
           <div className={`mobile-nav ${isMenuOpen ? "active" : ""}`}>
             <div className="mobile-nav-links">
-              <button onClick={() => scrollToSection("home")} className="nav-link">
+              <button
+                onClick={() => scrollToSection("home")}
+                className="nav-link">
                 Home
               </button>
-              <button onClick={() => scrollToSection("services")} className="nav-link">
+              <button
+                onClick={() => scrollToSection("services")}
+                className="nav-link">
                 Services
               </button>
-              <button onClick={() => scrollToSection("about")} className="nav-link">
+              <button
+                onClick={() => scrollToSection("about")}
+                className="nav-link">
                 About
               </button>
-              <button onClick={() => scrollToSection("testimonials")} className="nav-link">
+              <button
+                onClick={() => scrollToSection("testimonials")}
+                className="nav-link">
                 Reviews
               </button>
-              <button onClick={() => scrollToSection("gallery")} className="nav-link">
+              <button
+                onClick={() => scrollToSection("gallery")}
+                className="nav-link">
                 Gallery
               </button>
-              <button onClick={() => scrollToSection("insurance")} className="nav-link">
+              <button
+                onClick={() => scrollToSection("insurance")}
+                className="nav-link">
                 Insurance
               </button>
-              <button onClick={() => scrollToSection("faq")} className="nav-link">
+              <button
+                onClick={() => scrollToSection("faq")}
+                className="nav-link">
                 FAQ
               </button>
-              <button onClick={() => scrollToSection("contact")} className="nav-link">
+              <button
+                onClick={() => scrollToSection("contact")}
+                className="nav-link">
                 Contact
               </button>
-              <div style={{ paddingTop: "1rem", borderTop: "1px solid #e5e7eb" }}>
+              <div
+                style={{ paddingTop: "1rem", borderTop: "1px solid #e5e7eb" }}>
                 <div className="emergency-contact">
                   <AlertCircle size={16} />
                 </div>
@@ -302,26 +337,36 @@ export default function DentistWebsite() {
               <div className="hero-text">
                 <h2>Your Smile is Our Priority</h2>
                 <p>
-                  Experience exceptional dental care with our state-of-the-art facility and compassionate team. We're
-                  committed to helping you achieve optimal oral health.
+                  Experience exceptional dental care with our state-of-the-art
+                  facility and compassionate team. We're committed to helping
+                  you achieve optimal oral health.
                 </p>
                 <div className="hero-buttons">
-                  <button className="btn-primary" onClick={() => scrollToSection("appointment")}>
+                  <button
+                    className="btn-primary"
+                    onClick={() => scrollToSection("appointment")}>
                     Book Appointment
                   </button>
-                  <button className="btn-secondary" onClick={() => scrollToSection("services")}>
+                  <button
+                    className="btn-secondary"
+                    onClick={() => scrollToSection("services")}>
                     Our Services
                   </button>
                 </div>
                 <div className="hero-stats">
                   <div className="stat-item">
-                    <Star size={20} style={{ color: "#fbbf24", fill: "#fbbf24" }} />
+                    <Star
+                      size={20}
+                      style={{ color: "#fbbf24", fill: "#fbbf24" }}
+                    />
                     <span style={{ fontWeight: "600" }}>4.9/5</span>
                     <span style={{ color: "#6b7280" }}>(200+ reviews)</span>
                   </div>
                   <div className="stat-item">
                     <Users size={20} style={{ color: "#2C6975" }} />
-                    <span style={{ color: "#6b7280" }}>5000+ Happy Patients</span>
+                    <span style={{ color: "#6b7280" }}>
+                      5000+ Happy Patients
+                    </span>
                   </div>
                 </div>
               </div>
@@ -333,8 +378,12 @@ export default function DentistWebsite() {
                       <CheckCircle size={24} style={{ color: "#16a34a" }} />
                     </div>
                     <div>
-                      <p style={{ fontWeight: "600", color: "#1f2937" }}>15+ Years</p>
-                      <p style={{ fontSize: "0.875rem", color: "#6b7280" }}>Experience</p>
+                      <p style={{ fontWeight: "600", color: "#1f2937" }}>
+                        15+ Years
+                      </p>
+                      <p style={{ fontSize: "0.875rem", color: "#6b7280" }}>
+                        Experience
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -411,25 +460,27 @@ export default function DentistWebsite() {
             <div className="about-content">
               <h2>Meet Dr. Smith</h2>
               <p>
-                With over 15 years of experience in dentistry, Dr. Smith is committed to providing exceptional dental
-                care in a comfortable and welcoming environment. She graduated from Harvard School of Dental Medicine
-                and has been serving the community with dedication and expertise.
+                With over 15 years of experience in dentistry, Dr. Smith is
+                committed to providing exceptional dental care in a comfortable
+                and welcoming environment. She graduated from Harvard School of
+                Dental Medicine and has been serving the community with
+                dedication and expertise.
               </p>
               <div className="credentials">
                 <div className="credential-item">
-                  <Award size={20} style={{ color: "#2C6975" }} />
+                  <Award size={20} />
                   <span>Harvard School of Dental Medicine Graduate</span>
                 </div>
                 <div className="credential-item">
-                  <Star size={20} style={{ color: "#2C6975" }} />
+                  <Star size={20} />
                   <span>15+ Years of Experience</span>
                 </div>
                 <div className="credential-item">
-                  <Heart size={20} style={{ color: "#2C6975" }} />
+                  <Heart size={20} />
                   <span>Member of American Dental Association</span>
                 </div>
                 <div className="credential-item">
-                  <Shield size={20} style={{ color: "#2C6975" }} />
+                  <Shield size={20} />
                   <span>Board Certified in General Dentistry</span>
                 </div>
               </div>
@@ -439,13 +490,21 @@ export default function DentistWebsite() {
                 <div className="team-grid">
                   <div className="team-member">
                     <img src={sara} alt="Sarah Johnson" />
-                    <p style={{ fontWeight: "500" }}>Sarah Johnson</p>
-                    <p style={{ fontSize: "0.875rem", color: "#6b7280" }}>Dental Hygienist</p>
+                    <p style={{ fontWeight: "500", color: "#1b1b1b" }}>
+                      Sarah Johnson
+                    </p>
+                    <p style={{ fontSize: "0.875rem", color: "#444444ff" }}>
+                      Dental Hygienist
+                    </p>
                   </div>
                   <div className="team-member">
                     <img src={mike} alt="Mike Chen" />
-                    <p style={{ fontWeight: "500" }}>Mike Chen</p>
-                    <p style={{ fontSize: "0.875rem", color: "#6b7280" }}>Dental Assistant</p>
+                    <p style={{ fontWeight: "500", color: "#1b1b1b" }}>
+                      Mike Chen
+                    </p>
+                    <p style={{ fontSize: "0.875rem", color: "#444444ff" }}>
+                      Dental Assistant
+                    </p>
                   </div>
                 </div>
               </div>
@@ -466,7 +525,12 @@ export default function DentistWebsite() {
               <div key={index} className="testimonial-card">
                 <div className="stars">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} size={16} className="star" style={{ fill: "#fbbf24" }} />
+                    <Star
+                      key={i}
+                      size={16}
+                      className="star"
+                      style={{ fill: "#fbbf24" }}
+                    />
                   ))}
                 </div>
                 <p className="testimonial-text">"{testimonial.text}"</p>
@@ -512,7 +576,13 @@ export default function DentistWebsite() {
           </div>
           <div className="insurance-grid">
             <div>
-              <h3 style={{ fontSize: "1.5rem", fontWeight: "bold", color: "#1f2937", marginBottom: "1.5rem" }}>
+              <h3
+                style={{
+                  fontSize: "1.5rem",
+                  fontWeight: "bold",
+                  color: "#ffffffff",
+                  marginBottom: "1.5rem",
+                }}>
                 Accepted Insurance Plans
               </h3>
               <div className="insurance-providers">
@@ -523,43 +593,56 @@ export default function DentistWebsite() {
                   </div>
                 ))}
               </div>
-              <p style={{ marginTop: "1.5rem", color: "#6b7280" }}>
-                Don't see your insurance? Call us at (555) 123-4567 to verify coverage.
+              <p style={{ marginTop: "1.5rem", color: "#b5bdccff" }}>
+                Don't see your insurance? Call us at (555) 123-4567 to verify
+                coverage.
               </p>
             </div>
             <div>
-              <h3 style={{ fontSize: "1.5rem", fontWeight: "bold", color: "#1f2937", marginBottom: "1.5rem" }}>
+              <h3
+                style={{
+                  fontSize: "1.5rem",
+                  fontWeight: "bold",
+                  color: "#ffffffff",
+                  marginBottom: "1.5rem",
+                }}>
                 Payment Options
               </h3>
               <div className="payment-options">
                 <div className="payment-item">
-                  <CreditCard size={20} style={{ color: "#2C6975" }} />
-                  <div>
+                  <CreditCard size={20} style={{ color: "#16a34a" }} />
+                  <div className="payment-info">
                     <p style={{ fontWeight: "600" }}>Credit Cards</p>
-                    <p style={{ fontSize: "0.875rem", color: "#6b7280" }}>
+                    <p style={{ fontSize: "0.875rem", color: "#dfe3eaff" }}>
                       Visa, MasterCard, American Express, Discover
                     </p>
                   </div>
                 </div>
                 <div className="payment-item">
                   <CheckCircle size={20} style={{ color: "#16a34a" }} />
-                  <div>
+                  <div className="payment-info">
                     <p style={{ fontWeight: "600" }}>CareCredit</p>
-                    <p style={{ fontSize: "0.875rem", color: "#6b7280" }}>0% interest financing available</p>
+                    <p style={{ fontSize: "0.875rem", color: "#dfe3eaff" }}>
+                      0% interest financing available
+                    </p>
                   </div>
                 </div>
                 <div className="payment-item">
-                  <Calendar size={20} style={{ color: "#2C6975" }} />
-                  <div>
+                  <Calendar size={20} style={{ color: "#16a34a" }} />
+                  <div className="payment-info">
                     <p style={{ fontWeight: "600" }}>Payment Plans</p>
-                    <p style={{ fontSize: "0.875rem", color: "#6b7280" }}>Flexible monthly payment options</p>
+                    <p style={{ fontSize: "0.875rem", color: "#dfe3eaff" }}>
+                      Flexible monthly payment options
+                    </p>
                   </div>
                 </div>
                 <div className="payment-item">
-                  <Award size={20} style={{ color: "#2C6975" }} />
-                  <div>
+                  <Award size={20} style={{ color: "#16a34a" }} />
+                  <div className="payment-info">
                     <p style={{ fontWeight: "600" }}>Cash Discount</p>
-                    <p style={{ fontSize: "0.875rem", color: "#6b7280" }}>5% discount for cash payments</p>
+                    <p style={{ fontSize: "0.875rem", color: "#dfe3eaff" }}>
+                      5% discount for cash payments
+                    </p>
                   </div>
                 </div>
               </div>
@@ -578,13 +661,20 @@ export default function DentistWebsite() {
           <div className="faq-container">
             {faqData.map((faq, index) => (
               <div key={index} className="faq-item">
-                <button className="faq-question" onClick={() => toggleFAQ(index)} style={{ color: '#bdb5b3' }}>
-                  <span>{faq.question}</span>
-                  {expandedFAQ === index ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                <button
+                  className="faq-question"
+                  onClick={() => toggleFAQ(index)}
+                  style={{ color: "#bdb5b3", outline: "none" }}>
+                  <span className="faq-q">{faq.question}</span>
+                  {expandedFAQ === index ? (
+                    <ChevronUp size={20} />
+                  ) : (
+                    <ChevronDown size={20} />
+                  )}
                 </button>
                 {expandedFAQ === index && (
                   <div className="faq-answer">
-                    <p>{faq.answer}</p>
+                    <p className="faq-a">{faq.answer}</p>
                   </div>
                 )}
               </div>
@@ -602,50 +692,72 @@ export default function DentistWebsite() {
           </div>
           <div className="appointment-form">
             <form onSubmit={handleAppointmentSubmit} className="form-grid">
-              <div className="form-row" style={{ gridTemplateColumns: "1fr 1fr" }}>
+              <div
+                className="form-row"
+                style={{ gridTemplateColumns: "1fr 1fr" }}>
                 <div className="form-group">
-                  <label className="form-label" style={{ color: "var(--primary)" }}>First Name *</label>
+                  <label className="form-label">First Name *</label>
                   <input
                     type="text"
                     required
                     value={appointmentForm.firstName}
-                    onChange={(e) => setAppointmentForm({ ...appointmentForm, firstName: e.target.value })}
+                    onChange={(e) =>
+                      setAppointmentForm({
+                        ...appointmentForm,
+                        firstName: e.target.value,
+                      })
+                    }
                     className="form-input"
                     style={{ background: "var(--background)" }}
                   />
                 </div>
                 <div className="form-group">
-                  <label className="form-label" style={{ color: "var(--primary)" }}>Last Name *</label>
+                  <label className="form-label">Last Name *</label>
                   <input
                     type="text"
                     required
                     value={appointmentForm.lastName}
-                    onChange={(e) => setAppointmentForm({ ...appointmentForm, lastName: e.target.value })}
+                    onChange={(e) =>
+                      setAppointmentForm({
+                        ...appointmentForm,
+                        lastName: e.target.value,
+                      })
+                    }
                     className="form-input"
                     style={{ background: "var(--background)" }}
                   />
                 </div>
               </div>
 
-              <div className="form-row" style={{ gridTemplateColumns: "1fr 1fr" }}>
+              <div className="form-row">
                 <div className="form-group">
-                  <label className="form-label" style={{ color: "var(--primary)" }}>Email *</label>
+                  <label className="form-label">Email *</label>
                   <input
                     type="email"
                     required
                     value={appointmentForm.email}
-                    onChange={(e) => setAppointmentForm({ ...appointmentForm, email: e.target.value })}
+                    onChange={(e) =>
+                      setAppointmentForm({
+                        ...appointmentForm,
+                        email: e.target.value,
+                      })
+                    }
                     className="form-input"
                     style={{ background: "var(--background)" }}
                   />
                 </div>
                 <div className="form-group">
-                  <label className="form-label" style={{ color: "var(--primary)" }}>Phone *</label>
+                  <label className="form-label">Phone *</label>
                   <input
                     type="tel"
                     required
                     value={appointmentForm.phone}
-                    onChange={(e) => setAppointmentForm({ ...appointmentForm, phone: e.target.value })}
+                    onChange={(e) =>
+                      setAppointmentForm({
+                        ...appointmentForm,
+                        phone: e.target.value,
+                      })
+                    }
                     className="form-input"
                     style={{ background: "var(--background)" }}
                   />
@@ -653,14 +765,18 @@ export default function DentistWebsite() {
               </div>
 
               <div className="form-group">
-                <label className="form-label" style={{ color: "var(--primary)" }}>Service Needed *</label>
+                <label className="form-label">Service Needed *</label>
                 <select
                   required
                   value={appointmentForm.service}
-                  onChange={(e) => setAppointmentForm({ ...appointmentForm, service: e.target.value })}
+                  onChange={(e) =>
+                    setAppointmentForm({
+                      ...appointmentForm,
+                      service: e.target.value,
+                    })
+                  }
                   className="form-select"
-                  style={{ background: "var(--background)" }}
-                >
+                  style={{ background: "var(--background)" }}>
                   <option value="">Select a service</option>
                   {services.map((service, index) => (
                     <option key={index} value={service}>
@@ -670,9 +786,11 @@ export default function DentistWebsite() {
                 </select>
               </div>
 
-              <div className="form-row" style={{ gridTemplateColumns: "1fr 1fr" }}>
+              <div
+                className="form-row"
+                style={{ gridTemplateColumns: "1fr 1fr" }}>
                 <div className="form-group">
-                  <label className="form-label" style={{ color: "var(--primary)" }}>Preferred Date *</label>
+                  <label className="form-label">Preferred Date *</label>
                   <input
                     type="date"
                     required
@@ -684,14 +802,13 @@ export default function DentistWebsite() {
                   />
                 </div>
                 <div className="form-group">
-                  <label className="form-label" style={{ color: "var(--primary)" }}>Preferred Time *</label>
+                  <label className="form-label">Preferred Time *</label>
                   <select
                     required
                     value={selectedTime}
                     onChange={(e) => setSelectedTime(e.target.value)}
                     className="form-select"
-                    style={{ background: "var(--background)" }}
-                  >
+                    style={{ background: "var(--background)" }}>
                     <option value="">Select a time</option>
                     {timeSlots.map((time, index) => (
                       <option key={index} value={time}>
@@ -703,15 +820,19 @@ export default function DentistWebsite() {
               </div>
 
               <div className="form-group">
-                <label className="form-label" style={{ color: "var(--primary)" }}>Additional Message</label>
+                <label className="form-label">Additional Message</label>
                 <textarea
                   rows="4"
                   value={appointmentForm.message}
-                  onChange={(e) => setAppointmentForm({ ...appointmentForm, message: e.target.value })}
+                  onChange={(e) =>
+                    setAppointmentForm({
+                      ...appointmentForm,
+                      message: e.target.value,
+                    })
+                  }
                   placeholder="Any specific concerns or questions?"
                   className="form-textarea"
-                  style={{ background: "var(--background)" }}
-                ></textarea>
+                  style={{ background: "var(--background)" }}></textarea>
               </div>
 
               <button type="submit" className="form-submit">
@@ -731,9 +852,7 @@ export default function DentistWebsite() {
           </div>
           <div className="contact-grid">
             <div>
-              <h3 style={{ fontSize: "1.5rem", fontWeight: "bold", color: "#1f2937", marginBottom: "1.5rem" }}>
-                Get in Touch
-              </h3>
+              <h3 className="git-text">Get in Touch</h3>
               <div className="contact-info">
                 <div className="contact-item">
                   <div className="contact-icon">
@@ -760,7 +879,7 @@ export default function DentistWebsite() {
                   <div>
                     <p style={{ fontWeight: "600" }}>Address</p>
                     <p style={{ color: "#6b7280" }}>
-                      123 Main Street  Anytown, ST 12345
+                      123 Main Street Anytown, ST 12345
                     </p>
                   </div>
                 </div>
@@ -781,14 +900,31 @@ export default function DentistWebsite() {
             </div>
             <div>
               <div className="contact-form">
-                <h3 style={{ fontSize: "1.25rem", fontWeight: "bold", marginBottom: "1rem" }}>Send us a Message</h3>
+                <h3
+                  style={{
+                    fontSize: "1.25rem",
+                    fontWeight: "bold",
+                    marginBottom: "1rem",
+                  }}>
+                  Send us a Message
+                </h3>
                 <form className="form-grid">
-                  <div className="form-row" style={{ gridTemplateColumns: "1fr 1fr" }}>
+                  <div
+                    className="form-row"
+                    style={{ gridTemplateColumns: "1fr 1fr" }}>
                     <input placeholder="First Name" className="form-input" />
                     <input placeholder="Last Name" className="form-input" />
                   </div>
-                  <input type="email" placeholder="Email" className="form-input" />
-                  <input type="tel" placeholder="Phone" className="form-input" />
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    className="form-input"
+                  />
+                  <input
+                    type="tel"
+                    placeholder="Phone"
+                    className="form-input"
+                  />
                   <select className="form-select">
                     <option>Select Subject</option>
                     <option>General Inquiry</option>
@@ -796,7 +932,10 @@ export default function DentistWebsite() {
                     <option>Insurance Question</option>
                     <option>Emergency</option>
                   </select>
-                  <textarea placeholder="Message" rows="4" className="form-textarea"></textarea>
+                  <textarea
+                    placeholder="Message"
+                    rows="4"
+                    className="form-textarea"></textarea>
                   <button type="submit" className="form-submit">
                     Send Message
                   </button>
@@ -812,38 +951,63 @@ export default function DentistWebsite() {
         <div className="container">
           <div className="footer-grid">
             <div>
-              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
-              <img src={logo} alt="Dr. Smith Dental Logo" style={{ width: 150, height: 150, borderRadius: "50%" }} />
-
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  marginBottom: "1rem",
+                }}>
+                <img
+                  src={logo}
+                  alt="Dr. Smith Dental Logo"
+                  style={{ width: 150, height: 150, borderRadius: "50%" }}
+                />
               </div>
-              <p style={{ color: "#d1d5db", marginBottom: "1rem" }}>
-                Providing exceptional dental care with a gentle touch and modern technology for over 15 years.
+              <p
+                style={{
+                  textAlign: "start",
+                  color: "#d1d5db",
+                  marginBottom: "1rem",
+                }}>
+                Providing exceptional dental care with a gentle touch and modern
+                technology for over 15 years.
               </p>
               <div style={{ display: "flex", gap: "1rem" }}>
-                <div style={{ background: "#2C6975", padding: "0.5rem", borderRadius: "0.25rem" }}>
-                  <Star size={16} style={{ color: "white" }} />
+                <div className="footer-icon">
+                  <Star size={16} />
                 </div>
-                <div style={{ background: "#2C6975", padding: "0.5rem", borderRadius: "0.25rem" }}>
-                  <Heart size={16} style={{ color: "white" }} />
+                <div
+                  className="footer-icon">
+                  <Heart size={16}  />
                 </div>
-                <div style={{ background: "#2C6975", padding: "0.5rem", borderRadius: "0.25rem" }}>
-                  <Shield size={16} style={{ color: "white" }} />
+                <div
+                 className="footer-icon">
+                  <Shield size={16} s/>
                 </div>
               </div>
             </div>
             <div>
               <h4>Quick Links</h4>
               <div className="footer-links">
-                <button onClick={() => scrollToSection("home")} className="footer-link">
+                <button
+                  onClick={() => scrollToSection("home")}
+                  className="footer-link">
                   Home
                 </button>
-                <button onClick={() => scrollToSection("services")} className="footer-link">
+                <button
+                  onClick={() => scrollToSection("services")}
+                  className="footer-link">
                   Services
                 </button>
-                <button onClick={() => scrollToSection("about")} className="footer-link">
+                <button
+                  onClick={() => scrollToSection("about")}
+                  className="footer-link">
                   About
                 </button>
-                <button onClick={() => scrollToSection("appointment")} className="footer-link">
+                <button
+                  onClick={() => scrollToSection("appointment")}
+                  className="footer-link">
                   Book Appointment
                 </button>
               </div>
@@ -851,26 +1015,28 @@ export default function DentistWebsite() {
             <div>
               <h4>Services</h4>
               <div className="footer-links">
-                <p style={{ color: "#d1d5db" }}>General Dentistry</p>
-                <p style={{ color: "#d1d5db" }}>Cosmetic Dentistry</p>
-                <p style={{ color: "#d1d5db" }}>Orthodontics</p>
-                <p style={{ color: "#d1d5db" }}>Dental Implants</p>
-                <p style={{ color: "#d1d5db" }}>Emergency Care</p>
+                <p className="footer-link">General Dentistry</p>
+                <p className="footer-link">Cosmetic Dentistry</p>
+                <p className="footer-link">Orthodontics</p>
+                <p className="footer-link">Dental Implants</p>
+                <p className="footer-link">Emergency Care</p>
               </div>
             </div>
             <div>
               <h4>Contact Info</h4>
-              <div style={{ color: "#d1d5db" }}>
-                <p>123 Main Street</p>
-                <p>Anytown, ST 12345</p>
-                <p>(555) 123-4567</p>
-                <p>info@drsmithdental.com</p>
-                
+              <div className="footer-links">
+                <p className="footer-link">123 Main Street</p>
+                <p className="footer-link">Anytown, ST 12345</p>
+                <p className="footer-link">(555) 123-4567</p>
+                <p className="footer-link">info@drsmithdental.com</p>
               </div>
             </div>
           </div>
           <div className="footer-bottom">
-            <p style={{ color: "#d1d5db" }}>&copy; {new Date().getFullYear()} Dr. Smith Dental. All rights reserved.</p>
+            <p style={{ color: "#d1d5db" }}>
+              &copy; {new Date().getFullYear()} Dr. Smith Dental. All rights
+              reserved.
+            </p>
             <div className="footer-legal">
               <a href="#">Privacy Policy</a>
               <a href="#">Terms of Service</a>
@@ -880,5 +1046,5 @@ export default function DentistWebsite() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
