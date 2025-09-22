@@ -715,7 +715,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  align-items: center;
+  align-items: start;
 }
 
 .footer-link {
@@ -804,9 +804,12 @@
     flex-direction: row;
     justify-content: space-between;
   }
+
+  
 }
 
 @media (min-width: 1024px) {
+ 
   .nav {
     display: flex;
   }
@@ -829,7 +832,7 @@
     padding: 0 2rem;
   }
 
-  .footer-links{
+  .footer-links {
     align-items: start;
   }
 
